@@ -8,7 +8,7 @@ class MyScene extends Phaser.Scene {
     
     preload() {
         this.load.image('farm', 'assets/farm.png');
-        this.load.spritesheet('chicken', 'assets/chicken.png', { frameWidth: 52, frameHeight: 60 });
+        this.load.spritesheet('chicken', 'assets/chicken_run.png', { frameWidth: 52, frameHeight: 41 });
         this.load.image('ground', 'assets/platform.png');
         this.load.image('star', 'assets/star.png');
         this.load.image('bomb', 'assets/bomb.png');
@@ -31,20 +31,20 @@ class MyScene extends Phaser.Scene {
 
         this.anims.create({
             key: 'left',
-            frames: this.anims.generateFrameNumbers('chicken', { start: 0, end: 3 }),
+            frames: this.anims.generateFrameNumbers('chicken', { start: 0, end: 2 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
             key: 'turn',
-            frames: [ { key: 'chicken', frame: 4 } ],
+            frames: [ { key: 'chicken', frame: 3 } ],
             frameRate: 20
         });
 
         this.anims.create({
             key: 'right',
-            frames: this.anims.generateFrameNumbers('chicken', { start: 5, end: 8 }),
+            frames: this.anims.generateFrameNumbers('chicken', { start: 4, end: 6 }),
             frameRate: 10,
             repeat: -1
         });
