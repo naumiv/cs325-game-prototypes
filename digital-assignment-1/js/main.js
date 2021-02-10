@@ -15,6 +15,8 @@ class MyScene extends Phaser.Scene {
         this.load.image('roof', 'assets/right_roof.png');
         this.load.image('tower_roof', 'assets/tower_roof.png');
         this.load.image('duck', 'assets/duck.png');
+        this.load.image('egg', 'assets/egg.png');
+
         // this.load.image('star', 'assets/star.png');
         // this.load.image('bomb', 'assets/bomb.png');
         // this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
@@ -60,6 +62,27 @@ class MyScene extends Phaser.Scene {
 
         this.physics.add.collider(player, platforms);
         cursors = this.input.keyboard.createCursorKeys();
+
+        player.on('animationrepeat', function () {
+
+            const eggs = this.physics.add.image(player.x - 32, player.y - 5, 'egg').setScale(0.5);
+           // eggs = this.physics.add.sprite(100, 450, 'chicken');
+            this.physics.add.collider(eggs, platforms);
+
+            this.tweens.add({
+                targets: eggs,
+                props: {
+                    x: {
+                        value: '-=64', ease: 'Power1'
+                    },
+                    y: {
+                        value: '+=10', ease: 'Bounce.easeOut'
+                    }
+                },
+                duration: 750
+            });
+
+        }, this);
     }
     
     update() {
