@@ -16,17 +16,13 @@ class MyScene extends Phaser.Scene {
         this.load.image('tower_roof', 'assets/tower_roof.png');
         this.load.image('duck', 'assets/duck.png');
         this.load.image('egg', 'assets/egg.png');
-
-        // this.load.image('star', 'assets/star.png');
-        // this.load.image('bomb', 'assets/bomb.png');
-        // this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
     }
     
     create() {
         this.add.image(400, 300, 'farm');
 
         platforms = this.physics.add.staticGroup();
-        
+
         platforms.create(300, 568, 'ground');
         platforms.create(775, 568, 'ground');
         platforms.create(400, 490, 'mid_ground');
@@ -35,10 +31,9 @@ class MyScene extends Phaser.Scene {
         platforms.create(506, 208, 'duck');
         platforms.create(200, 265, 'tower_roof');
 
-        player = this.physics.add.sprite(100, 450, 'chicken');
-
-        player.setBounce(0.2);
-        player.setCollideWorldBounds(true);
+        chicken = this.physics.add.sprite(150, 450, 'chicken');
+        chicken.setBounce(0.2);
+        chicken.setCollideWorldBounds(true);
 
         this.anims.create({
             key: 'left',
@@ -60,14 +55,15 @@ class MyScene extends Phaser.Scene {
             repeat: -1
         });
 
-        this.physics.add.collider(player, platforms);
+        this.physics.add.collider(chicken, platforms);      
         cursors = this.input.keyboard.createCursorKeys();
 
-        player.on('animationrepeat', function () {
+        chicken.on('animationrepeat', function () {
 
-            const eggs = this.physics.add.image(player.x - 32, player.y - 5, 'egg').setScale(0.5);
-           // eggs = this.physics.add.sprite(100, 450, 'chicken');
+            const eggs = this.physics.add.image(chicken.x - 25, chicken.y - 5, 'egg').setScale(0.5);
+           
             this.physics.add.collider(eggs, platforms);
+            eggs.setCollideWorldBounds(true);
 
             this.tweens.add({
                 targets: eggs,
@@ -88,26 +84,26 @@ class MyScene extends Phaser.Scene {
     update() {
         if (cursors.left.isDown)
     {
-        player.setVelocityX(-100);
+        chicken.setVelocityX(-100);
 
-        player.anims.play('left', true);
+        chicken.anims.play('left', true);
     }
     else if (cursors.right.isDown)
     {
-        player.setVelocityX(100);
+        chicken.setVelocityX(100);
 
-        player.anims.play('right', true);
+        chicken.anims.play('right', true);
     }
     else
     {
-        player.setVelocityX(0);
+        chicken.setVelocityX(0);
 
-        player.anims.play('turn');
+        chicken.anims.play('turn');
     }
 
-    if (cursors.up.isDown && player.body.touching.down)
+    if (cursors.up.isDown && chicken.body.touching.down)
     {
-        player.setVelocityY(-300);
+        chicken.setVelocityY(-300);
     }
     }
 }
@@ -128,5 +124,6 @@ const game = new Phaser.Game({
 });
 
 var platforms;
-var player;
+var chicken;
 var cursors;
+var secret_one, secret_two;
