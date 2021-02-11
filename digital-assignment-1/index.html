@@ -19,72 +19,84 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Your game title</h2>
+<h2>Eggs!</h2>
 
 <ul>
 <li><strong>Originality:</strong>
-What is original about your game?
+My game takes the concept of a platformer game and turns it more into a puzzle exploration game with a "clicker" aspect.
 </li>
 
 <li><strong>Technical Merit:</strong>
-What is interesting about your game technology?
+I was able to animate a controllable sprite that performs a repeated action. Also, I created hidden platforms that blend in
+with the background, so the player has to figure which areas they can reach as a chicken. The hidden platforms required
+the perfect size, color, and experimentation with the coordinates to make them invisible to the player eye. With the chicken laying the
+eggs as well, I needed to handle egg and platform collisions. 
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
-What did you learn from this prototype?
-What was the easiest or hardest part of making it?
+I learned the basic set up of a phaser game, and the key game objects that are available to create with. I also got a better understanding
+of JavaScript, which I haven't used much previously. I also learned how to use git better, especially in regards to updating a personal
+website. The easiest part of making the prototype was setting up the background and score board of the game since I used a tutorial. However, the
+hardest part was creating all the hidden platforms at the correct location and putting together my version of the chicken sprite, both of which required a lot of trial and error. 
 </li>
 
 <li><strong>Prototype Assets:</strong>
-Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+I used the chicken images from the respective source, however, I edited them together to make a custom sprite sheet.
 <ul>
-<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
+<li>Farm background: <a href="https://www.reddit.com/r/PixelArt/comments/a5tvln/farm_life/">Farm</a></li>
+<li>Egg: <a href="https://opengameart.org/content/egg-item-sprite">Egg</a></li>
+<li>Chicken: <a href="https://opengameart.org/content/chick">Chicken</a></li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
-Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+I followed the first game tutorial to create the basic objects in my game such as the animated sprite, platforms, score board, and collision physics. 
+I also incorporated the repeated animation example to animate the chicken laying eggs while walking. In addition to these two phaser examples, 
+I looked at the documentation for sprites, groups, and collisions. 
+<ul>
+<li>First game tutorial: <a href="https://phaser.io/tutorials/making-your-first-phaser-3-game/part1">1st Game</a></li>
+<li>Repeated animation example: <a href="https://phaser.io/examples/v3/view/animation/animation-repeat-event#">Repeated animation</a></li>
+</ul>
 </li>
 
 <li><strong>High Concept:</strong>
-A one-sentence summary of your game.
+A lone chicken explores a rustic farmhouse.
 </li>
 
 <li><strong>Theme:</strong>
-State which of the Storymatic themes you used.
+I used a challenge instead of theme. I chose things must only be added to the screen as the game progresses. 
 </li>
 
 <li><strong>Mandated Variety:</strong>
-State which input, randomness, genre, and play style you used in this prototype.
+Input: keyboard, Randomness: deterministic, Play Style: explorer/joker, Genre: puzzle/casual
 </li>
 
 <li><strong>Prototype Goal:</strong>
-What game mechanic is this prototype evaluating?
+This prototype is evaluating the mechanic of the chicken eggs showing the explorable paths at the farm house.
 </li>
 
 <li><strong>Player Experience Goals:</strong>
-What experience do you want players to have when playing your game?
+I want players to feel curious about what is  possible in the game since the way to play it might not be obvious at first. I also would like players to have fun while running around shooting eggs as a chicken!
 </li>
 
 <li><strong>Gameplay:</strong>
-A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+The player can walk and run using the arrow keys around the map. While the player runs, the chicken repeatedly lays eggs. The eggs have gravity as well so they drop to nearest hidden platform below them. That reveals the location of the platform, and in this manner the player can walk around the farm house. One aspect of the gameplay that is not in the prototype at the moment is that if the player reaches a specific "secret" location, they get bonus points.
 </li>
 
 <li><strong>Strategies:</strong>
-What player strategies do you expect will be effective at playing this game?
+The most effective strategy is for the player to walk around everywhere they can while jumping and shooting eggs in all directions. Based on where the eggs land, then they can tell where the next hidden platform is.
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
-A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
-How will the dramatic tension interact with the gameplay tension?
+A solitary chicken stumbled upon a mysterious farm house in the wild west. The chicken, far away from home, decides to explore the farm house but finds that she cannot determine the right path around it. She decides to lay eggs to find where she can walk, but she still has to ask is the bright sun and intense heat causing a mirage or does the farm really exist?
 </li>
 
 <li><strong>Target Audience:</strong>
-A single sentence that describes the demographic you're trying to reach.
+The demographic is anyone above ten who enjoys casual or puzzle games.
 </li>
 
 <li><strong>Play Time:</strong>
-How long does your game take to play?
+The length of the game is up to the player since it depends on how much they want to explore or increase their score!
 </li>
 
 </ul>
