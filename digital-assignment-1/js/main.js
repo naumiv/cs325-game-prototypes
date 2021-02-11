@@ -35,6 +35,8 @@ class MyScene extends Phaser.Scene {
         chicken.setBounce(0.2);
         chicken.setCollideWorldBounds(true);
 
+        scoreText = this.add.text(16, 16, 'score: 0', {fontFamily: 'Georgia', fontSize: '28px', fill: '#fff' });
+
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('chicken', { start: 0, end: 2 }),
@@ -77,6 +79,9 @@ class MyScene extends Phaser.Scene {
                 },
                 duration: 750
             });
+
+            score += 10;
+            scoreText.setText('score: ' + score);
 
         }, this);
     }
@@ -126,4 +131,5 @@ const game = new Phaser.Game({
 var platforms;
 var chicken;
 var cursors;
-var secret_one, secret_two;
+var score = 0;
+var scoreText;
