@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello! Amaze!</title>
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Eggs!</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+My game takes the concept of a platformer game and turns it more into a puzzle exploration game with a clicker scoring system.
+</li>
+
+<li><strong>Technical Merit:</strong>
+I was able to animate a controllable sprite that performs a repeated action. Also, I created hidden platforms that blend in
+with the background, so the player has to figure which areas they can reach as a chicken. The hidden platforms required
+the perfect size, color, and experimentation with the coordinates to make them invisible to the player eye. With the chicken laying the
+eggs as well, I needed to handle egg and platform collisions. I added another aspect to collisions during this iteration with the secret areas in the map.
+When the player reaches the secret, it reveals itself to the player. I also included background music to contribute to the farm aesthetic of the game. 
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+I learned the basic set up of a game, and the key game objects that are available to create with on Phaser. I also got a better understanding
+of JavaScript, which I haven't used much previously. I got a better comprehension of git as well, especially in regards to updating a personal
+website. The easiest part of making the prototype was setting up the background and score board of the game since I used an easy-to-follow tutorial. However, the hardest part was creating all the hidden platforms at the correct location and putting together my version of the chicken sprite, both of which required a lot of trial and error. With this iteration, I learned to handle collisions and overlap between different object groups, a topic I had much difficulty implementing in the original. Part of the learning experience involved understanding Javascript classes more in depth. 
+</li>
+
+<li><strong>Prototype Assets:</strong>
+I used the chicken images from the respective source, however, I edited them together to make a custom sprite sheet.
+The hidden platforms are edited/cropped versions of the farm image. The background music is trimmed to better fit the game. 
+Likewise, I cropped/edited animal sprites from the original sprite sheet.
+<ul>
+<li>Farm background: <a href="https://www.reddit.com/r/PixelArt/comments/a5tvln/farm_life/">Farm</a></li>
+<li>Egg: <a href="https://opengameart.org/content/egg-item-sprite">Egg</a></li>
+<li>Chicken: <a href="https://opengameart.org/content/chick">Chicken</a></li>
+<li>Background Music: <a href="https://youtu.be/0zG1ahKOXNg">Banjo</a></li>
+<li>Farm Animals: <a href="https://www.deviantart.com/emimonserrate/art/Animal-Sprites-Nov-2014-494486697">Animals</a></li>
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+This game iterates on my first digital assignment. I improved the feel of the game through the addition of background music. I also added several new hidden platforms with 'secrets' that reveal themselves upon contact with the player sprite. I followed the first game tutorial to create the basic objects in my game such as the animated sprite, platforms, score board, and collision physics. I also incorporated the repeated animation example to animate the chicken laying eggs while walking. In addition to these two phaser examples, I looked at the documentation for sprites, groups, and collisions.  
+<ul>
+<li>First game tutorial: <a href="https://phaser.io/tutorials/making-your-first-phaser-3-game/part1">1st Game</a></li>
+<li>Repeated animation example: <a href="https://phaser.io/examples/v3/view/animation/animation-repeat-event#">Repeated animation</a></li>
+<li>Background Audio: <a href="https://phaser.io/examples/v3/view/audio/html5-audio/play-audio-file">Audio</a></li>
+</ul>
+</li>
+
+<li><strong>High Concept:</strong>
+A lone chicken explores a rustic farmhouse.
+</li>
+
+<li><strong>Theme:</strong>
+I used a challenge instead of a theme. I chose things must only be added to the screen as the game progresses. 
+</li>
+
+<li><strong>Mandated Variety:</strong>
+Input: keyboard, Randomness: deterministic, Play Style: explorer/joker, Genre: puzzle/casual
+</li>
+
+<li><strong>Prototype Goal:</strong>
+This prototype is evaluating the mechanic of the chicken eggs showing the explorable but hidden paths at the farm house.
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+I want players to feel curious about what is  possible in the game since the way to play it might not be obvious at first. I also would like players to have fun while running around shooting eggs as a chicken!
+</li>
+
+<li><strong>Gameplay:</strong>
+The player can walk and run using the arrow keys around the map. While the player runs, the chicken repeatedly lays eggs. The eggs have gravity as well so they drop to nearest hidden platform below them. That reveals the location of the platform, and in this manner the player can walk around the farm house. One aspect of the gameplay that is not in the prototype at the moment is that if the player reaches a specific "secret" location, they get bonus points.
+</li>
+
+<li><strong>Strategies:</strong>
+The most effective strategy is for the player to walk around everywhere they can while jumping and shooting eggs in all directions. Based on where the eggs land, then they can tell where the next hidden platform is.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+A solitary chicken stumbled upon a mysterious farm house in the wild west. The chicken, far away from home, decides to explore the farm house but finds that she cannot determine the right path up to it. She decides to lay eggs to find where she can walk, but she still has to ask: is the bright sun and intense heat causing a mirage or does the farm really exist?
+</li>
+
+<li><strong>Target Audience:</strong>
+The demographic is anyone above ten who enjoys casual or puzzle games.
+</li>
+
+<li><strong>Play Time:</strong>
+The length of the game is up to the player since it depends on how much they want to explore or increase their score!
+</li>
+
+</ul>
+</div>
+
+<!-- main.js must come at the end since it expects the HTML to have been created. -->
+<script src="js/main.js" type="module"></script>
+</body>
+</html>
