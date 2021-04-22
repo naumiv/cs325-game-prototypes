@@ -16,10 +16,10 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('bg', 'assets/ui/undersea-bg.png');
-    this.load.image('up', 'assets/ui/up-bubble.png');
-    this.load.image('down', 'assets/ui/down-bubble.png');
-    this.load.spritesheet('fish', 'assets/sprites/fish-136x80.png', { frameWidth: 136, frameHeight: 80 });
+    this.load.image('bg', 'assets/undersea-bg.png');
+    this.load.image('up', 'assets/up-bubble.png');
+    this.load.image('down', 'assets/down-bubble.png');
+    this.load.spritesheet('fish', 'assets/fish-136x80.png', { frameWidth: 136, frameHeight: 80 });
 }
 
 function create ()
