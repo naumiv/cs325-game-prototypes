@@ -9,7 +9,7 @@ class MyScene extends Phaser.Scene {
     preload() {
         this.load.audio('disco', 'assets/humble_match.mp3');
         this.load.image('bg', 'assets/kitchen.jpg');
-        this.load.image('bar', 'assets/progress.png');
+        this.load.image('bar', 'assets/progress.PNG');
         this.load.image('start', 'assets/start.png');
         this.load.image('chicken', 'assets/chicken.png');
         this.load.image('steak', 'assets/steak.png');
