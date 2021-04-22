@@ -22,6 +22,9 @@ class MyScene extends Phaser.Scene {
         this.load.image('watermelon', 'assets/watermelon.png');
         this.load.image('instructions', 'assets/instructions.png');
         this.load.image('next', 'assets/next.png');
+        this.load.image('triangle', 'assets/triangle.png');
+        this.load.image('cook', 'assets/cook.png');
+        this.load.image('stop', 'assets/stop.png');
         
         // this.load.image('up', 'assets/up-bubble.png');
         // this.load.image('down', 'assets/down-bubble.png');
@@ -71,6 +74,34 @@ class MyScene extends Phaser.Scene {
             {
                 this.add.image(400, 300, 'bg').setScale(1.3);
                 var pb = this.add.image(400, 300, 'bar', 0).setScale(0.1);
+                var triangle = this.add.image(220, 345, 'triangle', 0).setScale(0.1);
+                var cook_bubble = this.add.image(400, 100, 'cook', 0).setScale(0.75);
+                var stop = this.add.image(400, 500, 'stop', 0).setScale(0.70).setInteractive();
+            
+                this.tweens.add({
+                    targets: triangle,
+                    props: {
+                        x: { value: 585, duration: 4000},
+                    },
+                    ease: 'Cubic',
+                    yoyo: true,
+                    repeat: -1
+                });
+
+                var tweens = this.tweens;
+
+                this.input.on('gameobjectup', function (pointer, gameobject) {
+                    if (gameobject === stop && tweens.timeScale > 0)
+                    {
+                        tweens.pauseAll();
+                
+                        text.setText('Pause All');
+                    }
+
+                });
+
+
+
             }
 
         }
