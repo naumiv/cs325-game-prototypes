@@ -28,6 +28,8 @@ class MyScene extends Phaser.Scene {
         this.load.image('bowl', 'assets/bowl.png');
         this.load.image('add', 'assets/add.png');
         this.load.audio('select', 'assets/select.mp3');
+        this.load.image('text', 'assets/textbox.png');
+        this.load.image('product', 'assets/product.png');
     }
 
     create() {
@@ -55,7 +57,6 @@ class MyScene extends Phaser.Scene {
             var f7 = this.add.image(600, 250, 'mushroom', 0).setInteractive();
             var f8 = this.add.image(600, 350, 'watermelon', 0).setInteractive();
             var f9 = this.add.image(600, 450, 'eggplant', 0).setInteractive();
-            // var select = this.sound.add('select');
 
             f1.on('pointerdown', function () {             
                 if(ingred_counter < 3 && chosen[0] != 1){
@@ -194,6 +195,7 @@ class MyScene extends Phaser.Scene {
                     var triangle = this.add.image(220, 345, 'triangle', 0).setScale(0.1);
                     var cook_bubble = this.add.image(400, 100, 'cook', 0).setScale(0.75);
                     var stop = this.add.image(400, 500, 'stop', 0).setScale(0.70).setInteractive();
+                    var final = this.add.image(675, 550, 'next').setScale(.4).setInteractive();
                 
                     this.tweens.add({
                         targets: triangle,
@@ -206,22 +208,41 @@ class MyScene extends Phaser.Scene {
                     });
 
                     var tweens = this.tweens;
-                    var num = this.add.text(10, 10, 'Chosen: ', { font: '24px Courier', fill: '#ffffff' });
+                    // var num = this.add.text(10, 10, 'Chosen: ', { font: '24px Courier', fill: '#ffffff' });
 
                     this.input.on('gameobjectup', function (pointer, gameobject) {
                         if (gameobject === stop && tweens.timeScale > 0)
                         {
                             select.play()
                             tweens.pauseAll();
-                            num.setText('Chosen: \n' + triangle.x);
-                            // if triangle.x < 585 && triangle.x > 530{
-                                
-                            // }
 
-                    
+                            if ((triangle.x < 585 && triangle.x > 530) || (triangle.x > 210 && triangle.x < 265)){
+                                cook = 1;
+                            }
+                            else{
+                                cook = 2;
+                            }
                         }
 
                     });
+
+                    final.once('pointerup', finalStage, this);
+
+                    function finalStage(){
+                        select.play();
+                        this.add.image(400, 300, 'bg').setScale(1.3);
+                        var textbox = this.add.image(400, 200, 'text');
+                        this.add.image(400, 400, 'product').setScale(1.5);
+                        var result = this.add.text(225, 175, 'Result: ', { font: '36px Courier', fill: '#ffffff' });
+
+                        if(cook === 1){
+                            result.setText('Uh oh! You burnt \n    your dish!');
+                        }
+                        else{
+                            result.setText('Great dish chef!');
+                        }
+
+                    }
 
                 }
 
@@ -248,3 +269,4 @@ var chosen = [0, 0, 0,
               0, 0, 0,
               0, 0, 0]
 var select;
+var cook;
