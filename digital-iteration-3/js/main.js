@@ -133,52 +133,103 @@ class MyScene extends Phaser.Scene {
                 }
             });
 
-            next.once('pointerup', setNext, this);
+            // next.once('pointerup', setNext, this);
 
-            // next.once('pointerup', mix, this);
+            next.once('pointerup', mix, this);
 
-            // function mix(){
-            //     this.add.image(400, 300, 'bg').setScale(1.3);
-            //     var c1, c2, c3;
-
-            //     if(chosen[0] == 1){
-            //         c1 = this.add.image(200, 250, 'chicken', 0).setInteractive();
-            //     }
-            //     if(chosen[0] == 1){
-            //         c1 = this.add.image(200, 250, 'chicken', 0).setInteractive();
-            //     }
-            // }
-
-            function setNext()
-            {
+            function mix(){
                 this.add.image(400, 300, 'bg').setScale(1.3);
-                var pb = this.add.image(400, 300, 'bar', 0).setScale(0.1);
-                var triangle = this.add.image(220, 345, 'triangle', 0).setScale(0.1);
-                var cook_bubble = this.add.image(400, 100, 'cook', 0).setScale(0.75);
-                var stop = this.add.image(400, 500, 'stop', 0).setScale(0.70).setInteractive();
-            
-                this.tweens.add({
-                    targets: triangle,
-                    props: {
-                        x: { value: 585, duration: 4000},
-                    },
-                    ease: 'Cubic',
-                    yoyo: true,
-                    repeat: -1
-                });
+                var c1, c2, c3;
+                var display = 0;
 
-                var tweens = this.tweens;
-
-                this.input.on('gameobjectup', function (pointer, gameobject) {
-                    if (gameobject === stop && tweens.timeScale > 0)
-                    {
-                        tweens.pauseAll();
-                
+                for(i = 0; i < chosen.length; i++){
+                    if(chosen[0] == 1){
+                        if(display == 0){c1 = this.add.image(100, 250, 'chicken', 0).setInteractive();display += 1;}
+                        else if(display == 1){c2 = this.add.image(100, 250, 'chicken', 0).setInteractive();display += 1;}
+                        else{c3 = this.add.image(100, 250, 'chicken', 0).setInteractive();}
                     }
-
-                });
+                    // if(chosen[1] == 1){
+                    //     if(display == 0){c1 = this.add.image(100, 350, 'steak', 0).setInteractive();display += 1;}
+                    //     else if(display == 1){c2 = this.add.image((100, 350, 'steak', 0).setInteractive();display += 1;}
+                    //     else{c3 = this.add.image(100, 350, 'steak', 0).setInteractive();}
+                    //     // this.add.image(100, 350, 'steak', 0).setInteractive();
+                    // }
+                }
+                // if(chosen[2] == 1){
+                //     if(display == 0){c1 = this.add.image(100, 450, 'fish', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(100, 450, 'fish', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(100, 450, 'fish', 0).setInteractive();}
+                //     // this.add.image(100, 450, 'fish', 0).setInteractive();
+                // }
+                // if(chosen[3] == 1){
+                //     if(display == 0){c1 = this.add.image(300, 250, 'corn', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(300, 250, 'corn', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(300, 250, 'corn', 0).setInteractive();}
+                //     // this.add.image(300, 250, 'corn', 0).setInteractive();
+                // }
+                // if(chosen[4] == 1){
+                //     if(display == 0){c1 = this.add.image(300, 350, 'cheese', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(300, 350, 'cheese', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(300, 350, 'cheese', 0).setInteractive();}
+                //     // this.add.image(300, 350, 'cheese', 0).setInteractive();
+                // }
+                // if(chosen[5] == 1){
+                //     if(display == 0){c1 = this.add.image(300, 450, 'apple', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(300, 450, 'apple', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(300, 450, 'apple', 0).setInteractive();}
+                //     // this.add.image(300, 450, 'apple', 0).setInteractive();
+                // }
+                // if(chosen[6] == 1){
+                //     if(display == 0){c1 = this.add.image(500, 250, 'mushroom', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(500, 250, 'mushroom', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(500, 250, 'mushroom', 0).setInteractive();}
+                //     // this.add.image(500, 250, 'mushroom', 0).setInteractive();
+                // }
+                // if(chosen[7] == 1){
+                //     if(display == 0){c1 = this.add.image(500, 350, 'watermelon', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(500, 350, 'watermelon', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(500, 350, 'watermelon', 0).setInteractive();}
+                //     // this.add.image(500, 350, 'watermelon', 0).setInteractive();
+                // }
+                // if(chosen[8] == 1){
+                //     if(display == 0){c1 = this.add.image(500, 450, 'eggplant', 0).setInteractive();display += 1;}
+                //     else if(display == 1){c2 = this.add.image(500, 450, 'eggplant', 0).setInteractive();display += 1;}
+                //     else{c3 = this.add.image(500, 450, 'eggplant', 0).setInteractive();}
+                //     // this.add.image(500, 450, 'eggplant', 0).setInteractive();
+                // }
 
             }
+
+            // function setNext()
+            // {
+            //     this.add.image(400, 300, 'bg').setScale(1.3);
+            //     var pb = this.add.image(400, 300, 'bar', 0).setScale(0.1);
+            //     var triangle = this.add.image(220, 345, 'triangle', 0).setScale(0.1);
+            //     var cook_bubble = this.add.image(400, 100, 'cook', 0).setScale(0.75);
+            //     var stop = this.add.image(400, 500, 'stop', 0).setScale(0.70).setInteractive();
+            
+            //     this.tweens.add({
+            //         targets: triangle,
+            //         props: {
+            //             x: { value: 585, duration: 4000},
+            //         },
+            //         ease: 'Cubic',
+            //         yoyo: true,
+            //         repeat: -1
+            //     });
+
+            //     var tweens = this.tweens;
+
+            //     this.input.on('gameobjectup', function (pointer, gameobject) {
+            //         if (gameobject === stop && tweens.timeScale > 0)
+            //         {
+            //             tweens.pauseAll();
+                
+            //         }
+
+            //     });
+
+            // }
 
         }
 
